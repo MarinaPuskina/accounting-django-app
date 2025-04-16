@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Редактирование расчета заработной платы</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.errors }}
+        </div>
+        {% endif %}
+        {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="form-group mb-3">
+            {{ form.employee.label_tag }}
+            {{ form.employee }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.month.label_tag }}
+            {{ form.month }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.year.label_tag }}
+            {{ form.year }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.rate_1.label_tag }}
+            {{ form.rate_1 }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.tariff_coef.label_tag }}
+            {{ form.tariff_coef }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.increase_percent.label_tag }}
+            {{ form.increase_percent }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.contract_percent.label_tag }}
+            {{ form.contract_percent }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.percent_experience.label_tag }}
+            {{ form.percent_experience }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.days_worked.label_tag }}
+            {{ form.days_worked }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.schedule_days.label_tag }}
+            {{ form.schedule_days }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.sick_days.label_tag }}
+            {{ form.sick_days }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.vacation_days.label_tag }}
+            {{ form.vacation_days }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.maternity_days.label_tag }}
+            {{ form.maternity_days }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.unpaid_days.label_tag }}
+            {{ form.unpaid_days }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.daily_rate.label_tag }}
+            {{ form.daily_rate }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.bonus.label_tag }}
+            {{ form.bonus }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.material_assistance.label_tag }}
+            {{ form.material_assistance }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.health_payment.label_tag }}
+            {{ form.health_payment }}
+        </div>
+        <div class="form-group mb-3">
+            {{ form.tax_deduction.label_tag }}
+            {{ form.tax_deduction }}
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary me-2" style="outline: none;">Сохранить изменения</button>
+            <a href="{% url 'payroll:salary_report' %}" class="btn btn-secondary">Вернуться к отчету</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

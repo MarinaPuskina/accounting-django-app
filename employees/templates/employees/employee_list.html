@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid ps-4">
+    <h1>Список сотрудников</h1>
+    <a href="{% url 'employee_create' %}" class="btn-success"
+       style="background-color: #28a745; color: white; border: none;">Добавить сотрудника</a>
+    <div class="table-responsive">
+        <div class="employee-list">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Отдел</th>
+                    <th>Дата приема</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.full_name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.department }}</td>
+                    <td>{{ employee.hire_date }}</td>
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}

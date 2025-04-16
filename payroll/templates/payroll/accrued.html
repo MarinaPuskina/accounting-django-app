@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Отчет по зарплате</h2>
+
+    <form method="get" class="mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <select name="month" class="form-control">
+                    <option value="">Все месяцы</option>
+                    {% for m in months %}
+                        <option value="{{ m.0 }}" {% if selected_month == m.0 %}selected{% endif %}>{{ m.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="year" class="form-control">
+                    <option value="">Все годы</option>
+                    {% for y in years %}
+                        <option value="{{ y }}" {% if selected_year == y %}selected{% endif %}>{{ y }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Показать</button>
+            </div>
+        </div>
+    </form>
+
+    {% for period, salaries in grouped_salaries.items %}
+<div class="card mb-4">
+        <div class="card-header">
+            <h5>{{ period.1 }}/{{ period.0 }}</h5>
+        </div>
+        <div class="card-body">
+            {% for salary in salaries %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h6>{{ salary.employee.full_name }}</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-success">Начисления:</h6>
+                            <div class="mt-4">
+                                <p>Оклад: <span class="bg-light p-2" style="border-radius: 4px;">{{ salary.total_salary }}</span></p>
+                                <p>Должностной оклад ({{ salary.days_worked }} дн.): <span class="bg-light p-2" style="border-radius: 4px;">{{ salary.final_salary }}</span></p>
+                                <p>Надбавка за стаж ({{ salary.days_worked }} дн.): <span class="bg-light p-2" style="border-radius: 4px;">{{ salary.bonus_service }}</span></p>
+                                <p>Больничный ({{ salary.sick_days }} дн.): <span class="bg-light p-2" style="border-radius: 4px;">{{ salary.sick_pay }}</span></p>
+                                <p>Отпуск ({{ salary.vacation_days }} дн.): <span>{{ salary.vacation_pay }}</span></p>
+                                <p>День матери ({{ salary.maternity_days }} дн.): <span>{{ salary.maternity_pay }}</span></p>
+                                <p>За свой счет ({{ salary.unpaid_days }} дн.): <span>{{ salary.unpaid_pay }}</span></p>
+                                <p>Матер. помощь: {{ salary.maternity_pay|floatformat:2 }} руб.</p>
+                                <p>Премия: <span>{{ salary.bonus }}</span></p>
+                                <p><strong>Итого начислено: {{ salary.total_accrued|floatformat:2 }} руб.</strong></p>
+                            </div>
+                        <div class="col-md-6">
+                            <h6 class="text-danger">Удержания:</h6>
+                            <p>Подоходный налог: {{ salary.income_tax|floatformat:2 }} руб.</p>
+                            <p>Пенсионный фонд: {{ salary.pension_fund|floatformat:2 }} руб.</p>
+                            <p>Профсоюзные взносы: {{ salary.union_fee|floatformat:2 }} руб.</p>
+                            <p><strong>Итого удержано: {{ salary.total_deductions|floatformat:2 }} руб.</strong></p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6>К выдаче: {{ salary.final_payment|floatformat:2 }} руб.</h6>
+                    </div>
+                </div>
+            </div>
+            <hr>
+{% endfor %}
+    {% endfor %}
+{% endblock %}
+

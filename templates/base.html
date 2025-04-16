@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Accounting{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main-menu">
+    <nav>
+        <ul>
+            <li><a href="{% url 'employee_list' %}" class="menu-button">Работники</a></li>
+            <li><a href="{% url 'payroll:salary_view' %}" class="menu-button">Расчет зарплаты</a></li>
+            <li><a href="{% url 'payroll:salary_report' %}" class="menu-button">Отчет по зарплате</a></li>
+        </ul>
+    </nav>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

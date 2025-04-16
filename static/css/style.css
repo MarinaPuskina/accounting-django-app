@@ -1,0 +1,188 @@
+body {
+    background: url('/static/images/фон.jpg') ;
+    background-color: #ffffff;
+    background-size: contain;
+    min-height: 100vh;
+}
+
+.salary-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.salary-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.salary-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.accruals, .deductions {
+    width: 48%;
+}
+
+
+.form-control {
+    background-color: #fcfcfc;
+}
+
+.form-group {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+label {
+    color: #333333;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Стили для полей ввода */
+.form-control {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.main-menu {
+    padding: 20px;
+    text-align: center;
+}
+
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-menu li {
+    margin: 10px 0;
+}
+
+.menu-button {
+    display: block;
+    padding: 20px 30px;
+    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 300px;
+    margin: 15px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    background: linear-gradient(145deg, #27ae60, #219a52);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.container h2 {
+    font-size: 24px;
+}
+
+.value-display {
+    background-color: #e9ecef;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #218838;
+    color: white;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #28a745;
+}
+
+.table {
+    background-color: #ffffff;
+}
+.table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.btn-success {
+    background-color: #2ecc71 !important; /* Яркий зеленый цвет */
+    border-color: #27ae60 !important;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-success:hover {
+    background-color: #27ae60 !important;
+    border-color: #219a52 !important;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.btn-success {
+    margin-bottom: 25px;
+}
+
+.table-responsive {
+    margin-top: 30px;
+}
+
+select option {
+    background-color: white;
+    color: black;
+}
+
+select option:hover,
+select option:checked {
+    background-color: #f8f9fa;
+    color: black;
+}
+
+/* Стили для разделения записей */
+.salary-record {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.edit-button-container {
+    text-align: center;
+    margin-top: 30px;  /* Увеличиваем верхний отступ */
+    padding-top: 15px; /* Добавляем внутренний отступ сверху */
+    border-top: 1px solid #eee; /* Добавляем разделительную линию */
+}
+
+.btn-edit {
+    min-width: 120px;
+    padding: 8px 20px;
+}
